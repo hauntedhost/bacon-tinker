@@ -3,48 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <title>bacon</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
-<div class="content">
-  <pre>1. clickable stuff (see console)</pre>
+<section class="content">
+  <article>
+    <header>clickable stuff (see console)</header>
 
-  <p data-clicky>bacon.js</p>
-  <span data-clicky>hello world</span>
+    <ul>
+      <li><p data-clicky>bacon.js</p></li>
+      <li><span data-clicky>hello world</span></li>
+    </ul>
+  </article>
 
-  <pre>2. weird plus/minus machine</pre>
+  <article>
+    <header>weird plus/minus machine</header>
 
-  <button data-minus>-1</button>
-  <input name="value" type="text" value="" />
-  <button data-plus>+1</button>
+    <button data-minus>-1</button>
+    <input name="value" type="text" value="" />
+    <button data-plus>+1</button>
+  </article>
 
-  <pre>3. custom plus/minus machine</pre>
+  <article>
+    <header>custom plus/minus machine</header>
 
-  <button data-adder="-5">-5</button>
-  <button data-adder="-1">-1</button>
-  <input name="adder" type="text" value="" />
-  <button data-adder="1">+1</button>
-  <button data-adder="5">+5</button>
+    <button data-adder="-5">-5</button>
+    <button data-adder="-1">-1</button>
+    <input name="adder" type="text" value="" />
+    <button data-adder="1">+1</button>
+    <button data-adder="5">+5</button>
+  </article>
 
-  <pre>4. single/double click detection</pre>
+  <article>
+    <header>single/double click detection</header>
 
-  <button data-clicker>clicker</button>
-  <span data-clicker></span>
+    <button data-clicker>clicker</button>
+    <span data-clicker></span>
+  </article>
 
-  <pre>5. double click only detection</pre>
+  <article>
+    <header>double click only detection</header>
 
-  <button data-clicker2>clicker</button>
-  <span data-clicker2></span>
-</div>
+    <button data-clicker2>clicker</button>
+    <span data-clicker2></span>
+  </article>
+</section>
 
+<!-- vendor -->
 <script type="text/javascript" src="js/vendor/jquery.js"></script>
 <script type="text/javascript" src="js/vendor/Bacon.js"></script>
 
+<!-- source -->
 <script type="text/javascript" src="js/src/clicky.js"></script>
 <script type="text/javascript" src="js/src/plus_minus.js"></script>
 <script type="text/javascript" src="js/src/adder.js"></script>
 <script type="text/javascript" src="js/src/single_vs_double_click.js"></script>
 <script type="text/javascript" src="js/src/double_click.js"></script>
-</script>
 </body>
 </html>

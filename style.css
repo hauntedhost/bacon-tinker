@@ -1,0 +1,21 @@
+section.content {
+  width: 460px;
+  margin: 0 auto;
+}
+
+article {
+  margin: 15px 0;
+}
+
+header {
+ background-color: #fffeeb;
+ padding: 5px;
+ margin-bottom: 10px;
+}
+
+[data-clicky] {
+  cursor: pointer;
+}
+
+pre {
+}
