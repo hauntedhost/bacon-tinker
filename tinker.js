@@ -1,23 +1,38 @@
 $(function() {
-  // clicker event stream
+  // single/double click event
   var clicker = $('button[data-clicker]').asEventStream('click')
-                                         .bufferWithTime(250)
+                                         .bufferWithTime(300)
                                          .map(function(n) { return n.length; });
 
   clicker.onValue(function(n) {
     var note = (n >= 2) ? 'double click' : 'single click';
-    $('span[data-clicker]').text(note);
+    $('span[data-clicker]').text(note)
+                           .fadeIn('fast')
+                           .delay(500)
+                           .fadeOut('slow');
+  });
+
+  // ----------------------
+
+  // double-only click event
+  var dClicker = $('button[data-clicker2]').asEventStream('click')
+                                           .bufferWithTimeOrCount(500, 2)
+                                           .filter(function(n) { return n.length >= 2; });
+
+  dClicker.onValue(function() {
+     $('span[data-clicker2]').text('double clicked!')
+                             .fadeIn('fast')
+                             .delay(500)
+                             .fadeOut('slow');
   });
 
   // ----------------------
 
   // plus/minus event streams
   var plus = $('button[data-plus]').asEventStream('click')
-                                   .debounce(100)
                                    .map(1);
 
   var minus = $('button[data-minus]').asEventStream('click')
-                                     .debounce(100)
                                      .map(-1);
 
   // merged plus/minus event streams
