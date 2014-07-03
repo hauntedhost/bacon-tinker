@@ -1,5 +1,5 @@
 $(function() {
-  // single/double click event
+  // single vs. double click event
   var clicker = $('button[data-clicker]').asEventStream('click')
                                          .bufferWithTime(300)
                                          .map(function(n) { return n.length; });
@@ -14,7 +14,7 @@ $(function() {
 
   // ----------------------
 
-  // double-only click event
+  // double-click only event
   var dClicker = $('button[data-clicker2]').asEventStream('click')
                                            .bufferWithTimeOrCount(500, 2)
                                            .filter(function(n) { return n.length >= 2; });
@@ -41,20 +41,32 @@ $(function() {
   // property
   var counter = both.scan(0, function(accum, value) { return accum + value; });
 
-  // shenanigans
+  // strange shenanigans
   counter.map(function(n) {
     if (n == 5) { return 'ahahahaha'; } else { return n; }
   }).onValue(function(n) {
     $('input[name="value"]').val(n);
   });
 
-  // 1. this is equivalent:
+  // NOTE: these two are equivalent
   // counter.assign($('input[name="value"]'), 'val')
 
-  // 2. to this:
   //counter.onValue(function(value) {
   //  $('input[name="value"]').val(value);
   //});
+
+  // ----------------------
+
+  // customizable addition event streams
+  var adder = $('button[data-adder]').asEventStream('click')
+                                     .map(function(click) {
+                                       return $(click.target).data('adder');
+                                     })
+                                     .scan(0, function(accum, value) {
+                                       return accum + value;
+                                     });
+
+  adder.assign($('input[name="adder"]'), 'val');
 
   // ----------------------
 
