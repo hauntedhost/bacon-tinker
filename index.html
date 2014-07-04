@@ -7,6 +7,14 @@
 </head>
 <body>
 
+<div id="attention">
+  <ul>
+    <li><label>isFocused:</label> <span data-is-focused></span></li>
+    <li><label>recentlyActive:</label> <span data-recently-active></span></li>
+    <li><label>hasAttention:</label> <span data-has-attention></span></li>
+  </ul>
+</div>
+
 <section class="content">
   <article>
     <header>clickable stuff (see console)</header>
@@ -72,18 +80,28 @@
     <img class="loading" data-loading src="css/loading-bubbles.svg" alt="Loading icon" />
     <ul class="results" data-results-list></ul>
   </article>
-</section>
 
-<div id="attention">
-  <ul>
-    <li><label>isFocused:</label> <span data-is-focused></span></li>
-    <li><label>recentlyActive:</label> <span data-recently-active></span></li>
-    <li><label>hasAttention:</label> <span data-has-attention></span></li>
-  </ul>
-</div>
+  <article>
+    <header>suggestions</header>
+    <p>Who to follow: <a href="#" data-refresh>Refresh</a></p>
+    <ul class="results" data-suggestions>
+      <li data-suggest="0">
+        <span></span> <a href="#">x</a>
+      </li>
+      <li data-suggest="1">
+        <span></span> <a href="#">x</a>
+      </li>
+      <li data-suggest="2">
+        <span></span> <a href="#">x</a>
+      </li>
+    </ul>
+  </article>
+
+</section>
 
 <!-- vendor -->
 <script type="text/javascript" src="js/vendor/jquery.js"></script>
+<script type="text/javascript" src="js/vendor/lodash.js"></script>
 <script type="text/javascript" src="js/vendor/Bacon.js"></script>
 
 <!-- source -->
@@ -95,6 +113,7 @@
 <script type="text/javascript" src="js/src/calc.js"></script>
 <script type="text/javascript" src="js/src/git.js"></script>
 <script type="text/javascript" src="js/src/attention.js"></script>
+<script type="text/javascript" src="js/src/suggestions.js"></script>
 
 </body>
 </html>
