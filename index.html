@@ -18,10 +18,10 @@
   </article>
 
   <article>
-    <header>weird plus/minus machine</header>
+    <header>funny plus-minus machine (add to +5)</header>
 
     <button data-minus>-1</button>
-    <input name="value" type="text" value="" />
+    <input name="value" type="text" readonly />
     <button data-plus>+1</button>
   </article>
 
@@ -30,7 +30,7 @@
 
     <button data-adder="-5">-5</button>
     <button data-adder="-1">-1</button>
-    <input name="adder" type="text" value="" />
+    <input name="adder" type="text" readonly />
     <button data-adder="1">+1</button>
     <button data-adder="5">+5</button>
   </article>
@@ -48,6 +48,22 @@
     <button data-clicker2>clicker</button>
     <span data-clicker2></span>
   </article>
+
+  <article>
+    <header>simple calc</header>
+
+    <input name="a" type="text" size="10" value="0" />
+    <select name="operator">
+      <option value="+" selected>+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="%">%</option>
+    </select>
+    <input name="b" type="text" size="10" value="0" />
+    <span>=</span>
+    <input name="answer" type="text" size="15" readonly>
+  </article>
 </section>
 
 <!-- vendor -->
@@ -60,5 +76,7 @@
 <script type="text/javascript" src="js/src/adder.js"></script>
 <script type="text/javascript" src="js/src/single_vs_double_click.js"></script>
 <script type="text/javascript" src="js/src/double_click.js"></script>
+<script type="text/javascript" src="js/src/calc.js"></script>
+
 </body>
 </html>

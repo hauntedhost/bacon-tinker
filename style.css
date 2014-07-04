@@ -1,6 +1,11 @@
+body {
+  font-size: 24px;
+}
+
 section.content {
   width: 460px;
   margin: 0 auto;
+  padding-bottom: 50px;
 }
 
 article {
@@ -15,7 +20,4 @@ header {
 
 [data-clicky] {
   cursor: pointer;
-}
-
-pre {
 }
