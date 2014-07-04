@@ -38,3 +38,21 @@ ul.results li {
 .loading {
   display: none;
 }
+
+#attention {
+  font-size: 13px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 150px;
+  height: 75px;
+  border: 1px dashed #c0c0c0;
+}
+
+#attention ul {
+  padding-left: 15px;
+}
+
+#attention ul li {
+  list-style-type: none;
+}
