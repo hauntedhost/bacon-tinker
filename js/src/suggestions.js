@@ -21,16 +21,14 @@ $(function() {
 
   // show single random suggestion
   // used when cancel is clicked
-  var showSuggestion = function(clickWithItems) {
-    if (!clickWithItems) { return false; }
+  var showSuggestion = function(clickWithItem) {
+    if (!clickWithItem) { return false; }
 
-    var $click = $(clickWithItems[0].currentTarget),
-        $span = $click.closest('li').find('span');
+    var $click = $(clickWithItem[0].currentTarget);
+    var $span = $click.closest('li').find('span');
+    var item = clickWithItem[1];
 
-    var items = clickWithItems[1],
-        suggestion = _.sample(items, 1)[0];
-
-    $span.text(suggestion.login);
+    $span.text(item.login);
   }
 
   // refresh all suggestions
@@ -77,12 +75,16 @@ $(function() {
   var $cancelLinks = $('[data-suggest] a');
   $cancelLinks.click(function(event) { event.preventDefault(); });
 
-  // simply zip up a + b (bacon zip is too lazy)
-  var zip = function(a, b) { return [a, b]; }
+  // zip click event with next item popped from results
+  var zipClickResult = function(event, results) {
+    if (results && results.length > 0) {
+      return [event, results.pop()];
+    }
+  }
 
-  // zip clicks with results so we can pluck suggestions
+  // zip clicks with results so we can pop next suggested item
   var cancel = $cancelLinks.asEventStream('click')
-                           .combine(results, zip)
+                           .combine(results, zipClickResult)
                            .startWith(false);
 
   // show individual suggestions
